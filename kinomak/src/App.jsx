@@ -17,7 +17,8 @@ function App() {
   const [libNav, setLibNav] = useState('watched');
   const [watchedArr, setIdWatchedArr] = useState([])
   const [toWatchArr, setIdToWatchArr] = useState([]);
-  const [page, setPage] = useState('1');
+  const [page, setPage] = useState(1);
+  const [searchData, setSearchData] = useState([]);
 
   const apiKey = '89fd381db9ad27b0433e7f45be441eda';
   const searchUrl = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${keyWord}&page=${page}`;
@@ -64,13 +65,15 @@ function App() {
     }, []);
       const axiosPopMovies = async()=>{
           const res = await axios.get(popMoviesUrl).then(data=>data.data.results);
-        
           setPopMovies(res);
         
         };       
         const axiosSearch = async ()=>{
-            const search = await axios.get(searchUrl).then(data => data.data.results);
-            localStorage.setItem('searchResults', JSON.stringify(search))
+            // const search = await axios.get(searchUrl).then(data => data.data.results);
+            const pageData = await axios.get(searchUrl).then(data => data);
+            setSearchData(pageData);
+            
+            // localStorage.setItem('searchResults', JSON.stringify(search))
         };
         
         
@@ -78,7 +81,8 @@ function App() {
   const handleSubmit = (key)=>{
     setKeyWord(key)
     axiosSearch(); 
-      setActiveNav('search');
+    // setPage(1);
+    // setActiveNav('search');
   }
   
 
@@ -89,12 +93,12 @@ function App() {
             <div className='search_conteiner' >
                 <label className ={ activeNav === 'library' ? 'hidden' : 'search' }  htmlFor="search">
                     <input onChange={(evt)=>{handleSubmit(evt.target.value)}} type="text" />
-                    <button onClick={()=>{handleSubmit()}} >search</button>
+                    {/* <button onClick={()=>{handleSubmit()}} >search</button> */}
                 </label>
             </div>
             <nav>
-                <button onClick={()=>{setActiveNav('home')}}>home</button>
-                <button onClick={()=>{setActiveNav('library')}}>library</button>
+                <button className={activeNav === 'home' ? 'active' : 'home_btn'} onClick={()=>{setActiveNav('home')}}>home</button>
+                <button className={activeNav === 'library' ? 'active' : 'library_btn'} onClick={()=>{setActiveNav('library')}}>library</button>
             </nav>
         </header>
     
@@ -102,7 +106,7 @@ function App() {
       { popMovies !== null ?
       (activeNav === 'home' ? <Home popMovies={popMovies} getClickedMovie={(clickedMovie)=>{setClickedMovie(clickedMovie)}} openModal={(singlePage)=>{setSinglePage(singlePage)}}/> 
       : activeNav === 'library' ? <Library libNav={libNav} setLibNav={(libNav)=>{setLibNav(libNav)}} openModal={(singlePage)=>{setSinglePage(singlePage)}} getClickedMovie={(clickedMovie)=>{setClickedMovie(clickedMovie)}} /> 
-      : activeNav === 'search' ? <Search keyWord={keyWord} openModal={(singlePage)=>{setSinglePage(singlePage)}} getClickedMovie={(clickedMovie)=>{setClickedMovie(clickedMovie)}} />
+      : activeNav === 'search' ? <Search searchData={searchData} axiosSearch={()=>{axiosSearch()}} page={page} setPage={(page)=>{setPage(page)}} keyWord={keyWord} openModal={(singlePage)=>{setSinglePage(singlePage)}} getClickedMovie={(clickedMovie)=>{setClickedMovie(clickedMovie)}} />
       : alert('Rendering error!>'))
       : <Loading/>
       }
@@ -110,9 +114,7 @@ function App() {
       {singlePage === 'open' ? <SinglePage toWatchArr={toWatchArr} watchedArr={watchedArr} handleToWatch={()=>{handleToWatch()}} handleWatched={()=>{handleWatched()}} closeSinglePage={(singlePage)=>{setSinglePage(singlePage)}}
        clickedMovieData={clickedMovie}/> : console.log('singlePage closed!')}
 
-        <footer>
-            <h2> &copy;reserved</h2>
-        </footer>
+        
     </div>
   );
 }

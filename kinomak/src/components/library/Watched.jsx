@@ -34,7 +34,7 @@ export default function Watched(props) {
         <br />
         <span className='avg_rating'> Rate: {movie.vote_average} </span>
       </div>
-        <button onClick={()=>{handleDelete(movie.id)}}>delete</button>
+        <button className='delete_btn' onClick={()=>{handleDelete(movie.id)}}>delete</button>
         </div>          
       ))}
     </div>

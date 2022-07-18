@@ -23,8 +23,8 @@
 }
 
 .pop_movie_list_item {
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center; */
+  /* align-items: center; */
   /* border: solid red 1px; */
   border-radius: 1rem;
   padding: 1rem;

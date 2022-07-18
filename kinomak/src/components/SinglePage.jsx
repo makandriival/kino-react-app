@@ -62,11 +62,9 @@ export default function SinglePage(props) {
        <h2>{movie.title}</h2> 
       <div className="single">
        <img src={imgBaseUrl+movie.poster_path} alt={movie.title}/>
-       <span>Rate: {movie.vote_average}</span>
-       <p>{ movie.overview }</p>      
+       <span className='rate' >Rate: {movie.vote_average}</span>
+       <p className='overview'>{ movie.overview }</p>      
        <div>
-           <h3>Add to:</h3>
-
            {wBtn === 'add' ? <> <button onClick = {()=>{handleBtnWatched()}} >Add to Watched</button> </>
            : wBtn === 'del' ? <> <button onClick={()=>{handleDelWatched()}}>Remove from Watched</button> </> 
            : alert('btn watched broken!') } 

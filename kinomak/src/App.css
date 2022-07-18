@@ -7,14 +7,6 @@ header {
   background-color: rgba(225, 182, 90, 0.605);
 }
 
-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color: rgba(145, 80, 0, 0.783);
-  padding-left: 1rem;
-}
-
 .single_page {
   position: fixed;
   left: 0;
@@ -48,20 +40,55 @@ footer {
   display: none;
 }
 .search {
-  border: olive 2px;
+  border: rgb(16, 140, 55) 2px;
 }
 
-header button {
-  background-color: #4caf4f90; /* Green */
+button {
+  color: aliceblue;
+  background-color: rgb(8, 107, 160);
   border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+  font-size: 1.5rem;
+  padding: 0.3rem;
+  margin: 0.5rem;
+  transition: 0.5s;
+}
+button:hover {
+  border-radius: 1rem;
 }
 
 .search_conteiner {
-  position: ;
+  position: absolute;
+  right: 10%;
+  top: 11%;
+}
+nav {
+  position: absolute;
+  left: 30%;
+}
+input {
+  height: 30px;
+}
+
+.active {
+  border: rgba(145, 80, 0, 0.783) solid 2px;
+  background-color: rgb(16, 8, 160);
+}
+
+.single_page {
+  /* padding: 3rem; */
+}
+
+.overview {
+  padding: 1rem;
+  background-color: burlywood;
+  border-radius: 1rem;
+}
+
+.rate {
+  position: relative;
+}
+
+.pagination {
+  display: flex;
+  /* flex-direction: row; */
 }

@@ -1,5 +1,5 @@
 // import React, { useEffect, useState } from 'react'
-
+import Pagination from "../Pagination";
 
 
 export default function Search(props) {
@@ -9,8 +9,9 @@ const imgBaseUrl = 'http://image.tmdb.org/t/p/w500';
 
 
 
-const searchResults = JSON.parse(localStorage.getItem('searchResults'));
-// console.log(searchResults);
+const searchResults = props.searchData.data.results;
+// JSON.parse(localStorage.getItem('searchResults'));
+console.log(searchResults);
 const openModal = (id)=>{
   props.openModal('open')
   const clickedMovie =  searchResults.find(elem => elem.id === id);
@@ -19,7 +20,10 @@ const openModal = (id)=>{
 
   return (
     <div>
-    <h2>serch results for: {props.keyWord}</h2>
+    <h2>Search results for: {props.keyWord}</h2>
+
+    <Pagination searchData={props.searchData} axiosSearch={()=>{props.axiosSearch()}} page={props.page} setPage={(page)=>{props.setPage(page)}} />
+
 <span></span>
     {searchResults.map(movie =>(     
            <div key={movie.id} className='pop_movie_list_item' onClick = {()=>{openModal(movie.id)}}>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Watched from './Watched';
 import ToWatch from './ToWatch';
+import './library.css';
 
 
 export default function Library(props) {
@@ -8,7 +9,7 @@ export default function Library(props) {
 
   return (
 
-    <div>
+    <div className='library_container'>
       <button onClick={()=>{props.setLibNav('watched')}} >Watched</button>
       <button onClick={()=>{props.setLibNav('to_watch')}}>To Watch</button>
 
