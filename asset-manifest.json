@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/kinomak/static/css/main.deed76b6.css",
+    "main.js": "/kinomak/static/js/main.b4e8748c.js",
+    "static/js/787.7a1e8fdf.chunk.js": "/kinomak/static/js/787.7a1e8fdf.chunk.js",
+    "index.html": "/kinomak/index.html",
+    "main.deed76b6.css.map": "/kinomak/static/css/main.deed76b6.css.map",
+    "main.b4e8748c.js.map": "/kinomak/static/js/main.b4e8748c.js.map",
+    "787.7a1e8fdf.chunk.js.map": "/kinomak/static/js/787.7a1e8fdf.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.deed76b6.css",
+    "static/js/main.b4e8748c.js"
+  ]
+}
