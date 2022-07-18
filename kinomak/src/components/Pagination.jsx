@@ -19,7 +19,7 @@ const handleDecrement = ()=>{
 
 const handleIncrement = ()=>{
     props.setPage(page + 1)
-    // props.axiosSearch();
+    props.axiosSearch();
     setReload('reload');
 }
 

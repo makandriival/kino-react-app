@@ -13,7 +13,7 @@ export default function SinglePage(props) {
     useEffect(()=>{
       wArr.includes(movie.id) == true ? setWBtn('del') : setWBtn('add');
       tArr.includes(movie.id) == true ? setTBtn('del') : setTBtn('add');
-    });
+    }, []);
 
     const handleBtnWatched = ()=>{
       props.handleWatched();   
@@ -59,6 +59,7 @@ export default function SinglePage(props) {
 
   return (
     <div className='single_page'>
+      
        <h2>{movie.title}</h2> 
       <div className="single">
        <img src={imgBaseUrl+movie.poster_path} alt={movie.title}/>

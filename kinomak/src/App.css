@@ -24,6 +24,7 @@ header {
 }
 
 .single {
+  padding: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,9 +39,6 @@ header {
 
 .hidden {
   display: none;
-}
-.search {
-  border: rgb(16, 140, 55) 2px;
 }
 
 button {
@@ -57,15 +55,19 @@ button:hover {
 }
 
 .search_conteiner {
-  position: absolute;
+  border-radius: 1rem;
+  background-color: rgba(75, 75, 75, 0.68);
+  position: fixed;
   right: 10%;
-  top: 11%;
+  top: 2%;
+  height: 4rem;
 }
 nav {
   position: absolute;
   left: 30%;
 }
 input {
+  margin: 1rem;
   height: 30px;
 }
 
@@ -90,5 +92,17 @@ input {
 
 .pagination {
   display: flex;
-  /* flex-direction: row; */
+}
+
+@media screen and (max-width: 700px) {
+  .search_conteiner {
+    position: fixed;
+    right: 5%;
+    top: 90%;
+  }
+}
+@media screen and (max-width: 500px) {
+  header {
+    display: grid;
+  }
 }

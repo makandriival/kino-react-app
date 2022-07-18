@@ -62,6 +62,7 @@ function App() {
   useEffect(()=>{
       axiosPopMovies();
       axiosSearch();
+      setPage(1); 
     }, []);
       const axiosPopMovies = async()=>{
           const res = await axios.get(popMoviesUrl).then(data=>data.data.results);
@@ -76,24 +77,26 @@ function App() {
             // localStorage.setItem('searchResults', JSON.stringify(search))
         };
         
-        
+  const handleInput = (key)=>{
+    setKeyWord(key);
+  }      
 
-  const handleSubmit = (key)=>{
-    setKeyWord(key)
+  const handleSearch = ()=>{
     axiosSearch(); 
-    // setPage(1);
-    // setActiveNav('search');
+    
+    setActiveNav('search');
+    
   }
   
 
   return (
     <div>
         <header>
-            <h3>KinoMak</h3>
+            <h2>KinoMak</h2>
             <div className='search_conteiner' >
                 <label className ={ activeNav === 'library' ? 'hidden' : 'search' }  htmlFor="search">
-                    <input onChange={(evt)=>{handleSubmit(evt.target.value)}} type="text" />
-                    {/* <button onClick={()=>{handleSubmit()}} >search</button> */}
+                    <input onChange={(evt)=>{handleInput(evt.target.value)}} type="text" />
+                    <button onClick={()=>{handleSearch()}} >search</button>
                 </label>
             </div>
             <nav>
@@ -112,7 +115,7 @@ function App() {
       }
 
       {singlePage === 'open' ? <SinglePage toWatchArr={toWatchArr} watchedArr={watchedArr} handleToWatch={()=>{handleToWatch()}} handleWatched={()=>{handleWatched()}} closeSinglePage={(singlePage)=>{setSinglePage(singlePage)}}
-       clickedMovieData={clickedMovie}/> : console.log('singlePage closed!')}
+       clickedMovieData={clickedMovie}/> : console.log('s p closed!')}
 
         
     </div>
