@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/kino-react-app/static/css/main.74d7cd43.css",
-    "main.js": "/kino-react-app/static/js/main.647a1065.js",
+    "main.css": "/kino-react-app/static/css/main.cde3129d.css",
+    "main.js": "/kino-react-app/static/js/main.df94034c.js",
     "static/js/787.7a1e8fdf.chunk.js": "/kino-react-app/static/js/787.7a1e8fdf.chunk.js",
     "index.html": "/kino-react-app/index.html",
-    "main.74d7cd43.css.map": "/kino-react-app/static/css/main.74d7cd43.css.map",
-    "main.647a1065.js.map": "/kino-react-app/static/js/main.647a1065.js.map",
+    "main.cde3129d.css.map": "/kino-react-app/static/css/main.cde3129d.css.map",
+    "main.df94034c.js.map": "/kino-react-app/static/js/main.df94034c.js.map",
     "787.7a1e8fdf.chunk.js.map": "/kino-react-app/static/js/787.7a1e8fdf.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.74d7cd43.css",
-    "static/js/main.647a1065.js"
+    "static/css/main.cde3129d.css",
+    "static/js/main.df94034c.js"
   ]
 }
