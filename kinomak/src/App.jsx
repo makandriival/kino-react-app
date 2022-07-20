@@ -62,7 +62,7 @@ function App() {
   useEffect(()=>{
       axiosPopMovies();
       axiosSearch();
-      setPage(1); 
+      
     }, []);
       const axiosPopMovies = async()=>{
           const res = await axios.get(popMoviesUrl).then(data=>data.data.results);
@@ -117,6 +117,14 @@ function App() {
       {singlePage === 'open' ? <SinglePage toWatchArr={toWatchArr} watchedArr={watchedArr} handleToWatch={()=>{handleToWatch()}} handleWatched={()=>{handleWatched()}} closeSinglePage={(singlePage)=>{setSinglePage(singlePage)}}
        clickedMovieData={clickedMovie}/> : console.log('s p closed!')}
 
+  <footer>
+    <span className='reserved'>KinoMak Reserved Ⓒ </span>
+      <nav className='nav_footer'>
+                <button className={activeNav === 'home' ? 'active' : 'home_btn'} onClick={()=>{setActiveNav('home')}}>home</button>
+                <button className={activeNav === 'library' ? 'active' : 'library_btn'} onClick={()=>{setActiveNav('library')}}>library</button>
+      </nav>
+    
+  </footer>     
         
     </div>
   );

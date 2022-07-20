@@ -93,6 +93,27 @@ input {
 .pagination {
   display: flex;
 }
+footer {
+  color: rgb(158, 242, 242);
+  background-color: rgb(7, 7, 7);
+  height: 5rem;
+}
+.nav_footer {
+  position: relative;
+  top: -1.5rem;
+  left: 2rem;
+}
+.nav_footer button {
+  /* display: none; */
+  background-color: black;
+  font-size: 1rem;
+  display: grid;
+}
+.reserved {
+  position: relative;
+  top: 1rem;
+  left: 70%;
+}
 
 @media screen and (max-width: 700px) {
   .search_conteiner {
